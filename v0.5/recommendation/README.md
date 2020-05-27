@@ -1,3 +1,8 @@
+# jgw
+```
+docker build --rm --build-arg PROXY=$http_proxy -t dlrm_inf .
+nvidia-docker run -v /raid/user-scratch/jgwohlbier/mlperf/data/recommendation:/data -v $(pwd)/log:/code/inf/log --rm -it dlrm_inf
+```
 # MLPerf Inference Benchmarks for Recommendation Task
 
 This is the reference implementation for MLPerf Inference benchmarks.

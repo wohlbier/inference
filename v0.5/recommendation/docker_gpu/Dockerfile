@@ -1,5 +1,9 @@
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 
+ARG PROXY
+ENV http_proxy $PROXY
+ENV https_proxy $PROXY
+
 ENV PYTHON_VERSION=3.7
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
@@ -19,7 +23,8 @@ RUN apt-get install -y --no-install-recommends \
       curl \
       htop \
       zip \
-      unzip
+      unzip \
+      emacs
 
 RUN cd /opt && \
     wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh -O miniconda.sh && \
