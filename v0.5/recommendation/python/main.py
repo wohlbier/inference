@@ -185,7 +185,7 @@ def get_backend(backend, dataset, max_ind_range, data_sub_sample_rate, use_gpu):
                     use_gpu=use_gpu
                 )
             else:
-                raise ValueError("only --max-in-range 10M or 40M is supported")
+                raise ValueError("only --max-ind-range 10M or 40M is supported")
         else:
             raise ValueError("only kaggle|terabyte dataset options are supported")
 

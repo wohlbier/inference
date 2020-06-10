@@ -45,7 +45,7 @@ class Criteo(Dataset):
                  min_samples_to_aggregate=None,
                  max_samples_to_aggregate=None,
                  test_num_workers=0,
-                 max_ind_range=-1,
+                 max_ind_range=40000000,
                  sub_sample_rate=0.0,
                  mlperf_bin_loader=False,
                  randomize="total",

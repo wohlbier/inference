@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ $# -lt 1 ]; then
-    echo "usage: $0 pytorch dlrm [kaggle|terabyte] [cpu|gpu]"
-    exit 1
-fi
+#if [ $# -lt 1 ]; then
+#    echo "usage: $0 pytorch dlrm [kaggle|terabyte] [cpu|gpu]"
+#    exit 1
+#fi
 if [ "x$DATA_DIR" == "x" ]; then
     echo "DATA_DIR not set" && exit 1
 fi
@@ -18,7 +18,7 @@ fi
 # defaults
 backend=pytorch
 model=dlrm
-dataset=kaggle
+dataset=terabyte
 device="cpu"
 
 for i in $* ; do
@@ -52,11 +52,16 @@ name="$model-$dataset-$backend"
 # pytorch
 #
 if [ $name == "dlrm-kaggle-pytorch" ] ; then
-    model_path="$MODEL_DIR/dlrm_kaggle.pytorch"
+    model_path="$MODEL_DIR/ck.pt"
+    export FULL_DATA_DIR=${DATA_DIR}/dac
     profile=dlrm-kaggle-pytorch
 fi
 if [ $name == "dlrm-terabyte-pytorch" ] ; then
-    model_path="$MODEL_DIR/dlrm_terabyte.pytorch"
+    #max_ind_range=10000000
+    #model_path="$MODEL_DIR/tb0875_10M.pt"
+    max_ind_range=40000000
+    model_path="$MODEL_DIR/tb00_40M.pt"
+    export FULL_DATA_DIR=${DATA_DIR}/criteo_terabyte
     profile=dlrm-terabyte-pytorch
 fi
 # debuging
